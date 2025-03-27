@@ -1,0 +1,51 @@
+@use "../../styles/helper.scss" as helper;
+
+.Hero {
+  background-color: hsla(240, 92%, 50%, 0.07);
+  &__wrapper {
+    @include helper.breakpoint_up(large) {
+      @include helper.flexDisplay($justify: space-between);
+    }
+  }
+  &__content_div {
+    @include helper.content_div;
+    &__head_text {
+      background-image: linear-gradient(45deg, #198510, #0073ff);
+      background-size: cover;
+      background-clip: text;
+      color: transparent;
+    }
+    &__desc{
+        margin: 20px 0px 30px;
+    }
+  }
+
+  &__banner_graphics {
+    @include helper.banner_graphics;
+  }
+
+  &__skills_container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+
+    @media(min-width : 1000px){
+      justify-content: flex-start;
+    }
+
+    &__skills_span {
+      @include helper.flexDisplay($justify: center);
+      width: 60px;
+      height: 60px;
+      border: 1px solid hsl(0deg 0% 0% / 18.82%);
+      border-radius: 10px;
+      & img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+    }
+  }
+}

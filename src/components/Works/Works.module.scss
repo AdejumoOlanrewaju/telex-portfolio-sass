@@ -1,0 +1,44 @@
+@use "../../styles/helper.scss" as helper; 
+
+.Works{
+    background-color: hsl(0, 0%, 100%);
+    &__head_div{
+        &__desc{
+            color : hsl(0, 0%, 20%);
+            margin-top: 15px;
+        }
+    }
+
+    &__items_container{
+        // @include helper.gridDisplay($min_size: 300px);
+        // gap : 20px;
+        margin-top: 30px;
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(auto-fit, 300px);
+        grid-auto-rows: 10px;
+        --card_small : 25;
+        --card_medium : 33;
+        --card_large : 45;
+        &__item{
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px;
+            &.card_small{
+                grid-row-end : span var(--card_small)
+            }
+
+             &.card_medium{
+                grid-row-end : span var(--card_medium)
+            }
+
+             &.card_large{
+                grid-row-end : span var(--card_large)
+            }
+            & img{
+                height : 100%;
+                width : 100%;
+            }
+        }
+    }
+}

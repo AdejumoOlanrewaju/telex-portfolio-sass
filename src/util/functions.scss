@@ -1,0 +1,19 @@
+@use "sass:math";
+
+@function rem($size){
+    @if math.is-unitless($size){
+        @return math.div($size, 16) + rem;
+    }
+    @else{
+        @return 'This function\'s argument should not include any unit just the number to convert';
+    }
+}
+
+@function em($size){
+    @if math.is-unitless($size){
+        @return math.div($size, 16) + em;
+    }
+    @else{
+        @return 'This function\'s argument should not include any unit just the number to convert';
+    }
+}

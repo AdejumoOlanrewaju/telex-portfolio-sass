@@ -1,0 +1,77 @@
+@use "../../styles/helper.scss" as helper;
+
+.About{
+    background-color: white;
+    padding: 40px 0px;
+    &__wrapper{
+        @include helper.breakpoint_up(large) {
+            @include helper.flexDisplay($justify: space-between);
+            gap : 60px;
+        }
+        
+    };
+    &__content_div{
+        @include helper.content_div;
+        order : 2;
+        &__work_cta{
+            background-color: var(--highlight-clr);
+            color : var(--light-text-clr);
+            display: block;
+            width : 150px;
+            text-align: center;
+            padding : 10px 0px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-inline : auto;
+            @include helper.transition(background-color);
+            @include helper.breakpoint_up(large) {
+                margin-inline : initial;
+            }
+            &:hover{
+                background-color: hsl(277.36deg 70.67% 25.88%);
+            }
+        }
+    }
+
+    &__banner_graphics{
+        @include helper.banner_graphics(hsl(0, 0%, 90%));
+        order : 1;
+        position: relative;
+        &__social_wrapper{
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            min-width : 60%;
+            @include helper.flexDisplay($justify: center);
+            gap : 20px;
+            padding : 5px 15px;
+            border-radius: 5px;
+            &__icon{
+                width : 30px;
+                height: 30px;
+                border-radius: 5px;
+                @include helper.flexDisplay($justify: center);
+                @include helper.transition(background-color);
+                &:hover{
+                    background-color: var(--highlight-clr);
+                    cursor: pointer;
+
+                    svg path{
+                        fill : hsl(0, 0%, 97%);
+                    }
+                }
+
+                & svg path{
+                    fill : hsl(0, 0%, 30%);
+                    stroke: transparent;
+                    @include helper.transition(fill);
+
+                }
+            }
+        }
+    }
+    
+}

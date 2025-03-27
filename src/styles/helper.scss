@@ -1,0 +1,94 @@
+@use "../util" as u;
+
+@mixin flexDisplay($justify: flex-start, $align: center, $direction: row) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+@mixin gridDisplay($size: auto-fit, $min_size: 250px) {
+  display: grid;
+  grid-template-columns: repeat($size, minmax($min_size, 1fr));
+}
+
+@mixin transition($property) {
+  transition: $property 0.3s ease;
+}
+
+@mixin img_fit($position: center) {
+  object-fit: cover;
+  object-position: $position;
+}
+
+@mixin content_div($width: 55%) {
+  
+  &__head_text {
+    text-align: center;
+  }
+
+  &__desc {
+    text-align: center;
+    margin: 15px 0px 20px;
+    color: hsl(0, 0%, 20%);
+  }
+
+  @include breakpoint_up(large) {
+    width : $width;
+    &__head_text {
+      text-align: start;
+    }
+
+    &__desc {
+      text-align: start;
+      max-width : 500px;
+    }
+  }
+}
+
+@mixin banner_graphics($bg-clr: hsl(0, 0%, 97%)) {
+  height : 600px;
+  margin-top: 30px;
+  
+  @include breakpoint_up(large){
+    width : 42%;
+    height: 500px;
+    margin-top: 0;
+  }
+
+  &__img_container {
+    background-color: $bg-clr;
+    padding: 30px 0px;
+    border-radius: 12px;
+    @include flexDisplay($justify: center);
+    height: 100%;
+  }
+
+  &__img {
+    width: 80%;
+    height: 90%;
+    @include img_fit(30% 20%);
+    @media(min-width: 900px) {
+      @include img_fit(top);
+    }
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+  }
+}
+
+$breakpoint_map:(
+  "small" : u.em(700),
+  "medium" : u.em(900),
+  "large" : u.em(1000),
+  "xlarge" : u.em(1200)
+);
+
+@mixin breakpoint_up($size){
+  @media(min-width : map-get($breakpoint_map, $size)){
+    @content;
+  }
+}
+
+@mixin breakpoint-lg () {
+  
+}

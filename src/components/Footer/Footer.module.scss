@@ -1,0 +1,36 @@
+@import "../../styles/helper.scss";
+
+.Footer{
+    @include flexDisplay($direction : column);
+    gap : 30px;
+    background-color: hsl(0, 0%, 10%);
+    padding : 20px 0px;
+    // height : 40px;
+    &__logo_container{
+        & > img{
+            width : 70px;
+            height : 70px;
+        }
+    }
+
+    &__social_div{
+        @include flexDisplay;
+        gap : 40px;
+        &__span_icon{
+            & svg{
+                cursor : pointer;
+                width : 25px;
+                height : 25px;
+                &:hover{
+                       path{
+                        fill : var(--highlight-clr)
+                       } 
+                }
+                path{
+                    fill : hsla(0, 0%, 95%, .6);
+                   
+                }
+            }
+        }
+    }
+}

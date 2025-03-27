@@ -1,0 +1,136 @@
+@import "../../styles/helper.scss";
+
+.Contact{
+    &__form_section_wrapper{
+        @media(min-width : 1000px){
+            @include flexDisplay($align: stretch);
+            overflow: hidden;
+            border-radius: 10px;
+        }
+    }
+
+    &__info_wrapper{
+        background-color: hsl(277.36deg 70.67% 55.88% / 31%);
+        padding : 20px 30px;
+        border-radius: 10px;
+        @media(min-width: 1000px){
+            width : 50%;
+            border-radius: 0px;
+        }
+        &__head_text{
+            color : hsl(277.36deg 89.8% 28.47%);
+        }
+
+        &__desc{
+            color : hsl(0, 0%, 20%);
+        }
+
+        &__info_div{
+            margin-block : 15px;
+            &__flex{
+                @include flexDisplay;
+                gap : 12px;
+                margin-bottom: 10px;
+                & h4{
+                    color : var(--dark-highlight-clr)
+                }
+                & p{
+                    color : hsl(0, 0%, 20%);
+                }
+            }
+
+        }
+        
+        &__social_div{
+            margin-top: 10px;
+            & h5{
+                color : var(--dark-highlight-clr)
+            }
+            &__flex{
+                margin-top: 10px;
+                @include flexDisplay;
+                gap : 15px;
+            }
+        }
+    }
+
+    &__span_icon{
+        width : 40px;
+        height : 40px;
+        background-color: var(--highlight-clr);
+        @include flexDisplay($justify: center);
+        border-radius: 50%;
+
+        & > svg{
+            width: 22px;
+            height : 22px;
+            & path{
+                fill : hsl(0, 0%, 98%);
+                stroke: transparent;
+            }
+        }
+    }
+
+    &__form_wrapper{
+        background-color: white;
+        padding : 20px 30px;
+        border-radius: 10px;
+        margin-top: 20px;
+        @media(min-width: 1000px){
+            margin-top: 0px;
+            width : 50%;
+            border-radius: 0px;
+        }
+        &__form_container{
+            margin-top: 20px;
+            &__input_side_container{
+                @include flexDisplay($direction : column, $align: flex-start);
+
+                @media(min-width : 700px){
+                    @include flexDisplay($direction : row, $align: flex-start);
+                    gap : 20px;
+                    &__input_container{
+                        width : 48%;
+                    }
+                }
+            }
+
+            &__input_container{
+                width : 100%;
+                margin-bottom: 10px;
+                &__form_label{
+                    font-weight: 500;
+                    color: hsl(0, 0%, 30%);
+                    font-size: 1.1rem;
+                    width: fit-content;
+                    margin-bottom: 7px;
+                    display: inline-block;
+                }
+                &__form_input{
+                    display: block;
+                    border: 1px solid hsla(0, 0%, 10%, 0.3);
+                    border-radius: 5px;
+                    padding: 7px 10px;
+                    font-size: 1rem;
+                    width: 100%;
+                }
+            }
+
+            &__submit_btn{
+                padding: 10px;
+                border-radius: 40px;
+                background-color: var(--highlight-clr);
+                color: hsl(0, 0%, 98%);
+                /* width : 180px; */
+                font-size: 1.1rem;
+                box-shadow: 0px 3px 10px hsla(277, 71%, 56%, 0.425);
+                /* margin : 30px 0px 30px; */
+                margin-top: 15px;
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+
+   
+}
